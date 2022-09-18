@@ -1,4 +1,4 @@
-from app.typing_attrs import T_Name
+from apps.typing_attrs import T_Name
 
 
 class Client:
@@ -7,6 +7,7 @@ class Client:
     be changed, and added purely for testing purposes.
     I'll retrieve data from the database and will modify logic accordingly.
     """
+
     user = {}
 
     def __int__(self, client_username: T_Name, client_password: T_Name):
@@ -18,5 +19,4 @@ class Client:
         return user.update(self.username, self.password)
 
     def _password_check(self) -> bool or str:
-        return True if Client.user.get(self.username) == self.password \
-            else f"User - {self.username} -doesn't exist"
+        return True if Client.user.get(self.username) == self.password else f"User - {self.username} -doesn't exist"

@@ -6,7 +6,6 @@ from ibapi.wrapper import EWrapper
 
 
 class ReqAndUpdateClientPortfolioData(EWrapper, EClient):
-
     def __init__(self):
         EClient.__init__(self, self)
         self.done = None
@@ -17,20 +16,40 @@ class ReqAndUpdateClientPortfolioData(EWrapper, EClient):
     def nextValidId(self, order_id):
         self.start()
 
-    def updatePortfolio(self, contract: Contract, position: float,
-                        market_price: float, market_value: float,
-                        average_cost: float, unrealized_pnl: float,
-                        realized_pnl: float, account_name: str):
-        print("UpdatePortfolio.", "Symbol:", contract.symbol, "SecType:",
-              "MarketPrice:", market_price, "MarketValue:",
-              market_value, "AverageCost:", average_cost,
-              "UnrealizedPNL:", unrealized_pnl, "RealizedPNL:",
-              realized_pnl, "AccountName:", account_name)
+    def updatePortfolio(
+        self,
+        contract: Contract,
+        position: float,
+        market_price: float,
+        market_value: float,
+        average_cost: float,
+        unrealized_pnl: float,
+        realized_pnl: float,
+        account_name: str,
+    ):
+        print(
+            "UpdatePortfolio.",
+            "Symbol:",
+            contract.symbol,
+            "SecType:",
+            "MarketPrice:",
+            market_price,
+            "MarketValue:",
+            market_value,
+            "AverageCost:",
+            average_cost,
+            "UnrealizedPNL:",
+            unrealized_pnl,
+            "RealizedPNL:",
+            realized_pnl,
+            "AccountName:",
+            account_name,
+        )
 
-    def updateAccountValue(self, key: str, val: str, currency: str,
-                           account_name: str):
-        return f"UpdateAccountValue. Key:, {key}, Value:, {val}, " \
-               f"Currency:, {currency}, AccountName:, {account_name}"
+    def updateAccountValue(self, key: str, val: str, currency: str, account_name: str):
+        return (
+            f"UpdateAccountValue. Key:, {key}, Value:, {val}, " f"Currency:, {currency}, AccountName:, {account_name}"
+        )
 
     def updateAccountTime(self, time_stamp: str):
         return f"UpdateAccountTime. Time:, {time_stamp}"

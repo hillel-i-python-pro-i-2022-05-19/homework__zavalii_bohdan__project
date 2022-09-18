@@ -1,0 +1,21 @@
+{% extends '_helpers/_base.html' %}
+
+{% block body %}
+    <h2>All clients admin area</h2>
+    <a href="{% url 'clients_show:create' %}">
+        <button type="button" class="btn btn-primary">Add a client</button>
+    </a>
+    <ol>
+        {% for client in clients %}
+            <li style="margin: .2em;">
+
+                <span>{{ client.client_name }} - {{ client.is_live_account }} - {{ client.account_number }}</span>
+
+                <a href="{% url 'clients_show:edit' pk=client.pk %}">
+                    <button type="button" class="btn btn-secondary">Edit
+                    </button>
+                </a>
+            </li>
+        {% endfor %}
+    </ol>
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends '_helpers/_base.html' %}
+
+{% block body %}
+    {% block content %}
+        <div class="login-div-parent">
+            <div class="login-div-child">
+                {% load static %}
+                <img id="logoSignIn" src="{% static '/img/black_logo.jpg' %}"
+                     width="80" height="75" alt="Logo">
+                <h1 class="h3 mb-3 fw-normal" style="text-align: center;">
+                    Please sign in</h1>
+                <form method="post">
+                    {{ form.as_p }}
+                    {% csrf_token %}
+                    <a href="/accounts/password_reset/" target="_blank">Forgot
+                        a password?</a>
+                    <div class="checkbox mb-3">
+                        <label>
+                            <input type="checkbox" value="remember-me">
+                            Remember me
+                        </label>
+                    </div>
+                    <p><input type="submit" class="login-button"
+                              style="border-color: darkgrey;" value="Sign in">
+                    </p>
+                </form>
+                <br>
+                <p>First time? Please, sign up - <a
+                        href="/client_validation" target="_blank">here</a>
+                </p>
+                <p class="mt-5 mb-3 text-muted">&copy; Liquidus Inc.,
+                    2022</p>
+            </div>
+        </div>
+    {% endblock %}
+{% endblock %}

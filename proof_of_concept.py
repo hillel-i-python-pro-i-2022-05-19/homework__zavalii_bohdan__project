@@ -1,7 +1,7 @@
 # ibapi -> broker's API
 
-from app.broker import app_start
-from app.models.models import Client
+from apps.broker import app_start
+from apps.models.models import Client
 
 
 class Login(Client):
@@ -25,5 +25,5 @@ class Login(Client):
         return Client.user.get(username) == password
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     app_start()
