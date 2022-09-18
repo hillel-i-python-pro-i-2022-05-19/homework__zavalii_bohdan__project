@@ -14,7 +14,7 @@ class DataStructureAndAnalysis:
     """
 
     def __int__(self, return_series):
-        self.series = return_series # DataFrame object
+        self.series = return_series  # DataFrame object
 
     def _sharpe_ratio(self, return_series, exp_ret, risk_free_rate):
         mean = return_series.mean() * exp_ret - risk_free_rate
