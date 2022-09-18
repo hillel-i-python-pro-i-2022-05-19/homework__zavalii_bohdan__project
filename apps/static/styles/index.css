@@ -1,0 +1,106 @@
+/* Making all input data black */
+input {
+    color: black;
+}
+
+body {
+    color: antiquewhite;
+    background: fixed;
+}
+
+form {
+    color: gray;
+}
+
+/* Editing header elements */
+#userGreetingDiv {
+    float: right;
+}
+
+#userGreeting {
+    padding: 1em;
+    color: aliceblue;
+}
+
+#login-or-sign-up {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    padding: 1em;
+}
+
+#login-or-sign-up > a {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: gray;
+}
+
+#login-or-sign-up > a:hover {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: black;
+    font-style: italic;
+}
+
+/* Editing Login and Sign up forms */
+.signUp_form-parent {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.signUp_form {
+    position: relative;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    width: 30vw;
+}
+
+.login-div-parent {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-div-child {
+    text-align: center;
+}
+
+.login-form {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* End of editing Login and Sign up forms*/
+/* Editing login and sign up buttons style */
+.login-button {
+    background-color: gray;
+    color: whitesmoke;
+    cursor: pointer;
+    -webkit-border-radius: 5px;
+    border: 1px solid white;
+    font-size: 1.2em;
+    /*border: 2px gold;*/
+}
+
+.login-button:hover {
+    background-color: darkgray;
+    color: antiquewhite;
+}
+
+#sign-up-btn {
+    background-color: gray;
+    color: whitesmoke;
+    cursor: pointer;
+    -webkit-border-radius: 5px;
+    border: 1px solid white;
+    font-size: 1.2em;
+}
+
+#sign-up-btn:hover {
+    background-color: darkolivegreen;
+    color: antiquewhite;
+}
+
+/* Editing login button style */
