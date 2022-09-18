@@ -1,6 +1,36 @@
+# Core
+django==4.0.4
 pydantic==1.9.1
+
+# Broker's API
 ibapi==9.81.1.post1
+
+# Datasets modyfing and visualisation
 numpy==1.22.4
 pandas==1.4.2
 matplotlib==3.5.2
-django==4.0.4
+
+# Crispy forms
+django-crispy-forms==1.14.0
+crispy-bootstrap5==0.6
+
+# Fontawesome icons
+fontawesome-free==5.15.4
+
+# IDE code formatter
+black==22.6.0
+
+# GitHub
+pre-commit==2.20.0
+
+# Upgrade syntax
+pyupgrade==2.37.2
+
+# Static analysis
+prospector[with_everything]==1.7.7
+
+# Get environment variables
+django-environ==0.9.0
+
+# DB Postgres
+psycopg2-binary==2.9.3
