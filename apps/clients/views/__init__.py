@@ -2,3 +2,4 @@
 from apps.clients.views.show_all_clients import ShowAllClientsView
 from apps.clients.views.client_update_view import ClientUpdateView
 from apps.clients.views.client_create_view import ClientCreateView
+from apps.clients.views.about_us_view import AboutUsView

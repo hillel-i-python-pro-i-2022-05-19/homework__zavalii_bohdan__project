@@ -16,4 +16,5 @@ urlpatterns = [
             ]
         ),
     ),
+    path("about_us", login_required(views.AboutUsView.as_view()), name="about_us"),
 ]

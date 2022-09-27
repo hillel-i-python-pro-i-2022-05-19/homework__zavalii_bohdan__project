@@ -17,9 +17,9 @@ form {
     float: right;
 }
 
-#userGreeting {
+#clientGreeting {
+    color: black;
     padding: 1em;
-    color: aliceblue;
 }
 
 #login-or-sign-up {
