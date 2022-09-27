@@ -17,7 +17,7 @@
                     <a class="nav-link active" aria-current="page" href="/">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">
+                    <a class="nav-link" href="/clients/about_us">
                         About us</a>
                 </li>
                 <li class="nav-item dropdown">
@@ -40,9 +40,9 @@
             </ul>
             <div class="d-flex justify-content-center align-items-center"
                  id="userGreetingDiv">
-                {% if client.is_authenticated %}
-                    <div id="userGreeting">Hi, {{ client.account_name }}!</div>
-                    <div><a href="{% url 'logout' %}">Log Out</a></div>
+                {% if user.is_authenticated %}
+                    <div id="clientGreeting">Hi, <i>{{ user.username }}!</i></div>
+                    <div><a href="{% url 'logout' %}" style="color: grey">Log Out</a></div>
                 {% else %}
                     <div id="login-or-sign-up">
                         <a href="{% url 'login' %}">Log In</a>

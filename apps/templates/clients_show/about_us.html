@@ -1,0 +1,43 @@
+{% extends '_helpers/_base.html' %}
+{% load static %}
+
+{% block body %}
+    <div class="about-section">
+        <h1>About Us Page</h1>
+        <p>Some text about who we are and what we do.</p>
+        <p>Resize the browser window to see that this page is responsive by the way.</p>
+    </div>
+
+    <h2 style="text-align:center">Our Team</h2>
+    <div class="row-about-us">
+        <div class="column">
+            <div class="card">
+                <img src="{% static '/img/vasya_2.jpg' %}" alt="Vasya" style="width:auto">
+                <div class="container" style="color: black; width: auto;">
+                    <h2>Vasyl Gutnik</h2>
+                    <p class="title">CEO & Founder</p>
+                    <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+                    <p>vasyabest@cock.com</p>
+                    <p>
+                        <button class="button">Contact</button>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="column">
+            <div class="card">
+                <img src="{% static '/img/shrek.png' %}" alt="Bohdan" style="width:auto">
+                <div class="container" style="color: black; width: auto">
+                    <h2>Bohdan Zavalii</h2>
+                    <p class="title">Art Director</p>
+                    <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+                    <p>bohdan@cock.com</p>
+                    <p>
+                        <button class="button">Contact</button>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
