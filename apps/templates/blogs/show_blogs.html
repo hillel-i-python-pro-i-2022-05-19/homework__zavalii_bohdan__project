@@ -1,0 +1,25 @@
+{% extends '_helpers/_base.html' %}
+
+{% block body %}
+    <h2 style="text-align: center">Read our Latest blogs!</h2>
+
+    <div class="container">
+        <div class="row">
+            <!-- Blog Entries Column -->
+            <div class="col-md-8 mt-3 left">
+                {% for post in post_list %}
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h2 class="card-title" style="color: darkolivegreen;">{{ post.title }}</h2>
+                            <p class="card-text text-muted h6">{{ post.author }} | {{ post.created_on }} </p>
+                            <p class="card-text" style="color: black">{{ post.content|slice:":200" }}</p>
+                            <a href="{% url 'blogs:post_detail' post.slug %}" class="btn btn-primary">Read More
+                                &rarr;</a>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+            {#            {% block sidebar %} {% include 'sidebar.html' %} {% endblock sidebar %}#}
+        </div>
+    </div>
+{% endblock %}

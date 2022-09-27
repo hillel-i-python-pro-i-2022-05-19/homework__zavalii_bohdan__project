@@ -26,6 +26,7 @@ urlpatterns = [
     path("", include("apps.base.urls")),
     path("clients/", include("apps.clients.urls")),
     path("client_validation/", include("apps.clients_validation.urls")),
+    path("blogs/", include("apps.blog.urls")),
     path("accounts/", include("django.contrib.auth.urls")),
     path("favicon.ico", RedirectView.as_view(url=staticfiles_storage.url("img/favicon.ico"))),
 ]

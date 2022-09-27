@@ -49,6 +49,7 @@ LOCAL_APPS = [
     "apps.models",
     "apps.clients",
     "apps.clients_validation",
+    "apps.blog",
 ]
 
 THIRD_PARTY_APPS = ["crispy_forms", "crispy_bootstrap5"]
