@@ -8,7 +8,7 @@
 - Added login/sign up pages;
 - App is properly configured in Docker;
 
-You can build an image of the app via from zero:
+You can build an image of the app from zero:
 ```shell
 make d-project-i-run
 ```
