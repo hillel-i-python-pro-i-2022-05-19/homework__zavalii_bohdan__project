@@ -30,10 +30,6 @@ body {
     color: white;
 }
 
-/*.container {*/
-/*    padding: 0 16px;*/
-/*}*/
-
 .container::after, .row-about-us::after {
     content: "";
     clear: both;

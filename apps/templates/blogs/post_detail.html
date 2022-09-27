@@ -1,0 +1,16 @@
+{% extends '_helpers/_base.html' %}
+
+{% block body %}
+    <a href="/blogs/" style="font-size: 1.2em;color: darkgreen;padding: 10px;">&#8592 Back to the Blog page</a>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 card mb-4  mt-3 left  top">
+                <div class="card-body">
+                    <h1 style="color: darkolivegreen;">{% block title %} {{ object.title }} {% endblock title %}</h1>
+                    <p class=" text-muted">{{ post.author }} | {{ post.created_on }}</p>
+                    <p class="card-text" style="color: black">{{ object.content | safe }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
