@@ -104,3 +104,39 @@ form {
 }
 
 /* Editing login button style */
+
+.card-text{
+    font-size: 1.2em;
+    line-height: 3.2vh;
+    color: black;
+}
+#paginator {
+    display: flex;
+}
+/* Comments styles */
+.comments-titles{
+    color: #555555;
+}
+.comments{
+    padding: 10px;
+    color: black;
+    font-size: 1.2em;
+}
+.comments-count{
+    float: right;
+    position: relative;
+    color: #555555;
+}
+#commentAuthor {
+    color: black;
+    font-weight: bold;
+}
+#detailBlogContainer{
+    display: flex;
+    justify-content: center;
+}
+#backToBlogs{
+    font-size: 1.2em;
+    color: darkgreen;
+    padding: 10px;
+}
