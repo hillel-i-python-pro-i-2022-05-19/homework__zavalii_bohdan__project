@@ -19,8 +19,15 @@ make d-run-i-local-dev
 - Added header (early look);
 
 ---
-### ✨ Update on: 28.09.2022:
+### ✨ Update on: 27.09.2022:
 
 - Fixed login/sign up pages logic;
 - Added templates for these pages;
 - Added blog app (v.0.1.0). You can click on `Our blog` title in the header to check it out.
+
+---
+### ✨ Update on: 28.09.2022:
+- Blog (v.0.2.0). Added comments;
+- Added pagination on the `/blogs` page;
+- Updated CSS and HTML on the old templates;
+- Added 2 new templates for comments feature.
