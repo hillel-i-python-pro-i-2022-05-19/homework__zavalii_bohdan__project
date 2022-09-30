@@ -1,0 +1,14 @@
+{% extends '_helpers/_base.html' %}
+
+{% block body %}
+    <h2>Add Blog post</h2>
+    <div class="add_blog_form-parent">
+        <div class="form-group">
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="btn btn-success" style="float: right;">Create</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}

@@ -1,7 +1,9 @@
+from django.urls import reverse_lazy
 from django.views import generic
+from django.views.generic import CreateView, UpdateView, DeleteView
 
 from .models import Post
-from .forms import CommentForm
+from .forms import CommentForm, BlogForm
 from django.shortcuts import render, get_object_or_404
 
 
@@ -9,6 +11,26 @@ class PostList(generic.ListView):
     queryset = Post.objects.filter(status=1).order_by("-created_on")
     template_name = "blogs/show_blogs.html"
     paginate_by = 3
+
+
+class AddBlogView(CreateView):
+    model = Post
+    form_class = BlogForm
+    template_name = "blogs/add_post.html"
+    success_url = reverse_lazy("blogs:show_all")
+
+
+class UpdateBlogView(UpdateView):
+    model = Post
+    template_name = "blogs/update_post.html"
+    fields = ["title", "slug", "content"]
+    success_url = reverse_lazy("blogs:show_all")
+
+
+class DeleteBlogView(DeleteView):
+    model = Post
+    template_name = "blogs/delete_post.html"
+    success_url = reverse_lazy("blogs:show_all")
 
 
 def post_detail(request, slug):

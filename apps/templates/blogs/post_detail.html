@@ -2,8 +2,9 @@
 {% load crispy_forms_tags %}
 
 {% block body %}
-    <a href="/blogs/" id="backToBlogs">&#8592 Back to the Blog page</a>
-    <div class="container" >
+    <button class="btn btn-primary"><a href="{% url 'blogs:show_all' %}" style="color: white;">&#8592 Back to the
+        blogs page</a></button>
+    <div class="container">
         <div class="row" id="detailBlogContainer">
             <div class="col-md-8 card mb-4  mt-3 left  top">
                 <div class="card-body">
@@ -16,7 +17,13 @@
             <div class="col-md-8 card mb-4  mt-3 ">
                 <div class="card-body">
                     <!-- comments -->
-                    <h3 class="comments-titles">{{ comments.count }} comments</h3>
+{#                    <h3 class="comments-titles">{{ comments.count }}#}
+                    {#                        comments</h3>#}
+                    {% with comments.count as total_comments %}
+                        <h3 class="comments-titles">
+                            {{ total_comments }} comment{{ total_comments|pluralize }}
+                        </h3>
+                    {% endwith %}
 
                     {% for comment in comments %}
                         <div class="comments">
