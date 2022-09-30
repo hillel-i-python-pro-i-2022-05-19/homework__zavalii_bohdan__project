@@ -1,0 +1,16 @@
+{% extends '_helpers/_base.html' %}
+{% load crispy_forms_tags %}
+
+{% block body %}
+    <h2>Edit your blog post</h2>
+    <div class="add_blog_form-parent">
+        <div class="form-group">
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form | crispy}}
+                <button type="submit" class="btn btn-success" style="float: right">Update</button>
+            </form>
+
+        </div>
+    </div>
+{% endblock %}
