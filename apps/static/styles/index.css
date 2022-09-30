@@ -105,38 +105,64 @@ form {
 
 /* Editing login button style */
 
-.card-text{
+.card-text {
     font-size: 1.2em;
     line-height: 3.2vh;
     color: black;
+    text-align: justify;
+
 }
+
 #paginator {
     display: flex;
 }
+
 /* Comments styles */
-.comments-titles{
+.comments-titles {
     color: #555555;
 }
-.comments{
+
+.comments {
     padding: 10px;
     color: black;
     font-size: 1.2em;
 }
-.comments-count{
+
+.comments-count {
     float: right;
     position: relative;
     color: #555555;
 }
+
 #commentAuthor {
     color: black;
     font-weight: bold;
 }
-#detailBlogContainer{
+
+#detailBlogContainer {
     display: flex;
     justify-content: center;
 }
-#backToBlogs{
+
+#backToBlogs {
     font-size: 1.2em;
     color: darkgreen;
     padding: 10px;
+}
+
+/* Editing show all blogs page */
+#addBlogBtn {
+    margin-left: 55%;
+}
+
+#editBlogBtn {
+    float: right;
+}
+
+.add_blog_form-parent {
+    width: 50vw;
+}
+
+select#id_author {
+    font-size: 1em;
 }
