@@ -20,7 +20,7 @@
                     <a href="{% url 'blogs:post_detail' post.slug %}" class="btn btn-primary">Read More
                         &rarr;</a>
                     <p class="comments-count">
-                        # comments
+                        {{ post.comments.count }} comment{{ post.comments.count|pluralize }}
                     </p>
                 </div>
             </div>
