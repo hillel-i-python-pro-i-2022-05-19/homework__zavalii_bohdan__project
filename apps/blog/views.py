@@ -2,7 +2,7 @@ from django.urls import reverse_lazy
 from django.views import generic
 from django.views.generic import CreateView, UpdateView, DeleteView
 
-from .models import Post
+from .models import Post, PostCategory
 from .forms import CommentForm, BlogForm, EditBlogForm
 from django.shortcuts import render, get_object_or_404
 
@@ -11,6 +11,13 @@ class PostList(generic.ListView):
     queryset = Post.objects.filter(status=1).order_by("-created_on")
     template_name = "blogs/show_blogs.html"
     paginate_by = 3
+    cats = PostCategory.objects.all()
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        cat_menu = PostCategory.objects.all()
+        context = super().get_context_data(object_list=None, **kwargs)
+        context["cat_menu"] = cat_menu
+        return context
 
 
 class AddBlogView(CreateView):
