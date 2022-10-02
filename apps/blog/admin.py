@@ -1,6 +1,13 @@
 from django.contrib import admin
 
-from apps.blog.models import Post, Comment
+from apps.blog.models import Post, Comment, PostCategory
+
+
+@admin.register(PostCategory)
+class PostCategoryAdmin(admin.ModelAdmin):
+    list_display = ("name",)
+    list_filter = ("name",)
+    search_fields = ["name"]
 
 
 @admin.register(Post)

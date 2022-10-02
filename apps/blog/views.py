@@ -3,7 +3,7 @@ from django.views import generic
 from django.views.generic import CreateView, UpdateView, DeleteView
 
 from .models import Post
-from .forms import CommentForm, BlogForm
+from .forms import CommentForm, BlogForm, EditBlogForm
 from django.shortcuts import render, get_object_or_404
 
 
@@ -23,7 +23,8 @@ class AddBlogView(CreateView):
 class UpdateBlogView(UpdateView):
     model = Post
     template_name = "blogs/update_post.html"
-    fields = ["title", "slug", "content"]
+    # fields = ["title", "slug", "blog_category", "content"]
+    form_class = EditBlogForm
     success_url = reverse_lazy("blogs:show_all")
 
 
