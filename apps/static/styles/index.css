@@ -110,7 +110,6 @@ form {
     line-height: 3.2vh;
     color: black;
     text-align: justify;
-
 }
 
 #paginator {
@@ -151,8 +150,13 @@ form {
 }
 
 /* Editing show all blogs page */
-#addBlogBtn {
-    margin-left: 55%;
+.add_buttons {
+    display: flex;
+    justify-content: center;
+}
+
+.add_buttons > a {
+    padding-left: 10px;
 }
 
 #editBlogBtn {
@@ -165,4 +169,19 @@ form {
 
 select#id_author {
     font-size: 1em;
+}
+
+/* Categories and Blogs view on the `blogs/` page */
+#blogsContainer {
+    display: flex;
+    width: 100%;
+}
+#categoriesList {
+    flex: 1;
+    margin-top: 15px;
+    height: 30vh;
+    float: right;
+}
+.category-item:hover{
+    font-weight: bold;
 }

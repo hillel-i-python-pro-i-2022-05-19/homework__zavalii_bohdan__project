@@ -3,11 +3,16 @@
 {% block body %}
     <h2 style="text-align: center">Read our Latest blogs!</h2>
 
-    <div class="container">
+    <div class="container" id="blogsContainer">
         <div class="row">
-            <a href="{% url 'blogs:add_blog' %}">
-                <button type="button" class="btn btn-success" id="addBlogBtn">➕ Add a blog</button>
-            </a>
+            <div class="add_buttons">
+                <a href="{% url 'blogs:add_blog' %}">
+                    <button type="button" class="btn btn-success" id="addBlogBtn">➕ Add a blog</button>
+                </a>
+                <a href="{% url 'blogs:add_category' %}">
+                    <button type="button" class="btn btn-primary" id="addBlogBtn">➕ Add a category</button>
+                </a>
+            </div>
             <!-- Blog Entries Column -->
             <div class="col-md-8 mt-3 left">
                 {% for post in post_list %}
@@ -16,22 +21,40 @@
                             <a href="{% url 'blogs:edit' pk=post.pk %}">
                                 <button type="button" class="btn btn-light" id="editBlogBtn">Edit blog 📝</button>
                             </a>
+
                             <a href="{% url 'blogs:delete' pk=post.pk %}">
                                 <button class="btn-close" aria-label="Close"></button>
                             </a>
                             <h2 class="card-title" style="color: darkolivegreen;">{{ post.title }}</h2>
                             <p class="card-text text-muted h6">{{ post.author }} | {{ post.created_on }} </p>
-                            <p class="card-text">{{ post.content|slice:":200"|safe }}</p>
+                            <span class="card-text text-muted h6">Category: </span><a
+                            href="{% url 'blogs:category' cats=post.blog_category|slugify %}" target="_blank"
+                            class="card-text text-muted h6"><i>{{ post.blog_category }}</i></a>
+                            <p></p>
+                            <p class="card-text">{{ post.content|slice:":200"|safe }}...</p>
                             <a href="{% url 'blogs:post_detail' post.slug %}" class="btn btn-primary">Read More
                                 &rarr;</a>
                             <p class="comments-count">
-                                {{ to }} # comments
+                                {{ post.comments.count }} comment{{ post.comments.count|pluralize }}
                             </p>
                         </div>
                     </div>
                 {% endfor %}
             </div>
+            <div class="card mb-4" id="categoriesList">
+                <h3 style="color: #555555;padding-left: 10px">List of categories:</h3>
+                <ul>
+                    {% for category in cat_menu %}
+                        <div>
+                            <a
+                                href="{% url 'blogs:category' cats=category|slugify %}" target="_blank" class="category-item">-
+                                <i>{{ category }}</i></a>
+                        </div>
+                    {% endfor %}
+                </ul>
+            </div>
         </div>
+
     </div>
     {% if is_paginated %}
         <nav aria-label="Page navigation conatiner"></nav>

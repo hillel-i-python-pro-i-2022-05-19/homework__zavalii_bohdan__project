@@ -10,6 +10,10 @@
                 <div class="card-body">
                     <h1 style="color: darkolivegreen;">{% block title %} {{ post.title }} {% endblock title %}</h1>
                     <p class=" text-muted">{{ post.author }} | {{ post.created_on }}</p>
+                    <span class="card-text text-muted h6">Category: </span><a
+                    href="{% url 'blogs:category' cats=post.blog_category|slugify %}" target="_blank"
+                    class="card-text text-muted h6"><i>{{ post.blog_category }}</i></a>
+                    <p></p>
                     <p class="card-text">{{ post.content | safe }}</p>
                 </div>
             </div>
@@ -17,7 +21,7 @@
             <div class="col-md-8 card mb-4  mt-3 ">
                 <div class="card-body">
                     <!-- comments -->
-{#                    <h3 class="comments-titles">{{ comments.count }}#}
+                    {#                    <h3 class="comments-titles">{{ comments.count }}#}
                     {#                        comments</h3>#}
                     {% with comments.count as total_comments %}
                         <h3 class="comments-titles">
