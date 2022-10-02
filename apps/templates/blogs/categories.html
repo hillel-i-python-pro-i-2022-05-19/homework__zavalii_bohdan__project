@@ -4,6 +4,7 @@
     {% if  category_posts %}
 
         <h2 style="text-align: center"><b><i>{{ cats }}</i></b> category</h2>
+        <h4 style="text-align: center">{{ category_posts.count }} post{{ category_posts.count|pluralize }}</h4>
         {% for post in category_posts %}
             <div class="card mb-4">
                 <div class="card-body">

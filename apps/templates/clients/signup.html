@@ -1,4 +1,5 @@
 {% extends '_helpers/_base.html' %}
+{% load crispy_forms_tags %}
 
 {% block body %}
     <div class="signUp_form-parent">
@@ -10,45 +11,8 @@
 
             <form method="post">
                 {% csrf_token %}
-                {#            {{ form.as_table }}#}
-                <label for="id_username"
-                       class="required-field">Email address:</label>
-
-                <input type="text" name="username" maxlength="150"
-                       autocapitalize="none" autocomplete="username"
-                       autofocus="" required="" id="id_username"
-                       placeholder="youremail@mail.com">
-
-                <br>
-                <span class="helptext">Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only.</span>
-
-
-                <label for="id_password1"
-                       class="required-field">Password:</label>
-
-
-                <input type="password" name="password1"
-                       autocomplete="new-password" required=""
-                       id="id_password1" placeholder="Password">
-
-                <br>
-                <span class="helptext"><ul><li>Your password can’t be too similar to your other personal information.</li><li>Your password must contain at least 8 characters.</li><li>Your password can’t be a commonly used password.</li><li>Your password can’t be entirely numeric.</li></ul></span>
-
-
-                <label for="id_password2" class="required-field">Password
-                    confirmation:</label>
-
-
-                <input type="password" name="password2"
-                       autocomplete="new-password" required=""
-                       id="id_password2">
-                <br>
-                <span class="helptext">Enter the same password as before, for verification.</span>
-                <br>
-                <br>
-                <button type="submit" id="sign-up-btn"
-                        style="border-color: darkgrey">Sign up
-                </button>
+                {{ form | crispy }}
+                <button type="submit" id="sign-up-btn" class="btn btn-dark">Sign Up</button>
             </form>
         </div>
     </div>

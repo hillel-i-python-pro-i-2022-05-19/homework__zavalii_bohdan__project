@@ -47,12 +47,37 @@ form {
 }
 
 .signUp_form {
+    text-align: center;
     position: relative;
     align-items: center;
     display: flex;
     flex-direction: column;
     margin: 0;
     width: 30vw;
+}
+
+.signUp_form label {
+    float: left;
+}
+
+.signUp_form small {
+    float: left;
+}
+
+.signUp_form form ul {
+    float: left;
+    color: gray;
+    padding: 10px;
+    font-size: 1.1em;
+}
+
+#hint_id_password2 {
+    color: gray !important;
+    font-size: 1em;
+}
+
+#sign-up-btn {
+    margin-top: 10px;
 }
 
 .login-div-parent {
@@ -66,41 +91,13 @@ form {
     text-align: center;
 }
 
-.login-form {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-}
-
 /* End of editing Login and Sign up forms*/
+
 /* Editing login and sign up buttons style */
-.login-button {
-    background-color: gray;
-    color: whitesmoke;
-    cursor: pointer;
-    -webkit-border-radius: 5px;
-    border: 1px solid white;
-    font-size: 1.2em;
-    /*border: 2px gold;*/
-}
 
-.login-button:hover {
-    background-color: darkgray;
-    color: antiquewhite;
-}
-
-#sign-up-btn {
-    background-color: gray;
-    color: whitesmoke;
-    cursor: pointer;
-    -webkit-border-radius: 5px;
-    border: 1px solid white;
-    font-size: 1.2em;
-}
-
+#login-button:hover,
 #sign-up-btn:hover {
-    background-color: darkolivegreen;
-    color: antiquewhite;
+    color: white;
 }
 
 /* Editing login button style */
@@ -176,12 +173,14 @@ select#id_author {
     display: flex;
     width: 100%;
 }
+
 #categoriesList {
     flex: 1;
-    margin-top: 15px;
+    /*margin-top: 15px;*/
     height: 30vh;
     float: right;
 }
-.category-item:hover{
+
+.category-item:hover {
     font-weight: bold;
 }
