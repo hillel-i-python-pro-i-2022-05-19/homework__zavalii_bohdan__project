@@ -2,8 +2,8 @@
 {% load crispy_forms_tags %}
 
 {% block body %}
-    <button class="btn btn-primary"><a href="{% url 'blogs:show_all' %}" style="color: white;">&#8592 Back to the
-        blogs page</a></button>
+    <a href="{% url 'blogs:show_all' %}" class="btn btn-primary" style="color: white;">&#8592 Back to the
+        blogs page</a>
     <div class="container">
         <div class="row" id="detailBlogContainer">
             <div class="col-md-8 card mb-4  mt-3 left  top">
@@ -15,14 +15,26 @@
                     class="card-text text-muted h6"><i>{{ post.blog_category }}</i></a>
                     <p></p>
                     <p class="card-text">{{ post.content | safe }}</p>
+                    <br>
+                    <!--  Adding likes to the post  -->
+                    <form action="{% url 'blogs:like_post' pk=post.pk %}" method="post" style="float: right">
+                        {% csrf_token %}
+                        {% if liked %}
+                            <button type="submit" name="post_id" value="{{ post.id }}"
+                                    class="btn btn-outline-danger btn-sm">👎
+                            </button>
+                        {% else %}
+                            <button type="submit" name="post_id" value="{{ post.id }}"
+                                    class="btn btn-outline-info btn-sm">👍
+                            </button>
+                        {% endif %} - <span>{{ total_likes }} Like{{ total_likes|pluralize }}</span>
+                    </form>
+                    <!--  End of code  -->
                 </div>
             </div>
-
+            <!-- Comments section -->
             <div class="col-md-8 card mb-4  mt-3 ">
                 <div class="card-body">
-                    <!-- comments -->
-                    {#                    <h3 class="comments-titles">{{ comments.count }}#}
-                    {#                        comments</h3>#}
                     {% with comments.count as total_comments %}
                         <h3 class="comments-titles">
                             {{ total_comments }} comment{{ total_comments|pluralize }}
@@ -34,14 +46,15 @@
                             <p id="commentAuthor">
                                 {{ comment.name }} |
                                 <span class=" text-muted font-weight-normal" style="font-weight: normal">
-              {{ comment.created_on }}
-            </span>
+                                    {{ comment.created_on }}
+                                </span>
                             </p>
                             {{ comment.body | linebreaks }}
                         </div>
                     {% endfor %}
                 </div>
             </div>
+            <!-- End of comments section -->
             <div class="col-md-8 card mb-4  mt-3 ">
                 <div class="card-body">
                     {% if new_comment %}

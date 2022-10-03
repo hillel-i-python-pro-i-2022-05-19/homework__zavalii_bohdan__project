@@ -1,30 +1,38 @@
 {% extends '_helpers/_base.html' %}
 
 {% block body %}
-    <h2 style="text-align: center">Read our Latest blogs!</h2>
+    <h2 style="text-align: center;">Read our Latest blogs!</h2>
 
     <div class="container" id="blogsContainer">
         <div class="row">
-            <div class="add_buttons">
-                <a href="{% url 'blogs:add_blog' %}">
-                    <button type="button" class="btn btn-success" id="addBlogBtn">➕ Add a blog</button>
-                </a>
-                <a href="{% url 'blogs:add_category' %}">
-                    <button type="button" class="btn btn-primary" id="addBlogBtn">➕ Add a category</button>
-                </a>
-            </div>
-            <!-- Blog Entries Column -->
+            {% if user.is_authenticated %}
+                <div class="add_buttons">
+                    <!--  Add blog button  -->
+                    {% if user.id == post.author.id or user.id == 1 %}
+                        <a href="{% url 'blogs:add_blog' %}">
+                            <button type="button" class="btn btn-success" id="addBlogBtn">➕ Add a blog</button>
+                        </a>
+                        <!--  Add category button  -->
+                        <a href="{% url 'blogs:add_category' %}">
+                            <button type="button" class="btn btn-primary" id="addBlogBtn">➕ Add a category</button>
+                        </a>
+                    {% endif %}
+                </div>
+            {% endif %}
             <div class="col-md-8 mt-3 left">
                 {% for post in post_list %}
                     <div class="card mb-4">
                         <div class="card-body">
-                            <a href="{% url 'blogs:edit' pk=post.pk %}">
-                                <button type="button" class="btn btn-light" id="editBlogBtn">Edit blog 📝</button>
-                            </a>
+                            {% if user.id == post.author.id or user.id == 1 %}
+                                <a href="{% url 'blogs:edit' pk=post.pk %}">
+                                    <button type="button" class="btn btn-light" id="editBlogBtn">Edit blog 📝</button>
+                                </a>
 
-                            <a href="{% url 'blogs:delete' pk=post.pk %}">
-                                <button class="btn-close" aria-label="Close"></button>
-                            </a>
+                                <a href="{% url 'blogs:delete' pk=post.pk %}">
+                                    <button class="btn-close" aria-label="Close"></button>
+                                </a>
+                            {% endif %}
+                            <!-- Blog Entries Column -->
                             <h2 class="card-title" style="color: darkolivegreen;">{{ post.title }}</h2>
                             <p class="card-text text-muted h6">{{ post.author }} | {{ post.created_on }} </p>
                             <span class="card-text text-muted h6">Category: </span><a
@@ -41,21 +49,24 @@
                     </div>
                 {% endfor %}
             </div>
-            <div class="card mb-4" id="categoriesList">
-                <h3 style="color: #555555;padding-left: 10px">List of categories:</h3>
-                <ul>
+            <!--  Category list  -->
+            <div class="" id="categoriesList">
+                <h3 style="color: white;padding-left: 10px">List of blog categories🔻</h3>
+                <ul style="font-size: 1.1em;">
                     {% for category in cat_menu %}
                         <div>
                             <a
-                                href="{% url 'blogs:category' cats=category|slugify %}" target="_blank" class="category-item">-
+                                href="{% url 'blogs:category' cats=category|slugify %}" target="_blank"
+                                class="category-item">▪
                                 <i>{{ category }}</i></a>
                         </div>
                     {% endfor %}
                 </ul>
             </div>
+            <!--  End of category list  -->
         </div>
-
     </div>
+    <!--  Page pagination  -->
     {% if is_paginated %}
         <nav aria-label="Page navigation conatiner"></nav>
         <ul class="pagination justify-content-center" id="paginator">
@@ -68,4 +79,5 @@
             {% endif %}
         </ul>
     {% endif %}
+    <!--  End of page pagination  -->
 {% endblock %}
