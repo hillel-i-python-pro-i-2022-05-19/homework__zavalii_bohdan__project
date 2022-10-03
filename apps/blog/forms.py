@@ -3,10 +3,7 @@ from django import forms
 
 # name cals two times in values_list() to get correct feedback from database
 CATEGORY_CHOICES = PostCategory.objects.all().values_list("name", "name")
-CATEGORY_CHOICES_LIST = []
-
-for category in CATEGORY_CHOICES:
-    CATEGORY_CHOICES_LIST.append(category)
+CATEGORY_CHOICES_LIST = list(CATEGORY_CHOICES)
 
 
 class BlogForm(forms.ModelForm):
@@ -38,3 +35,8 @@ class CommentForm(forms.ModelForm):
     class Meta:
         model = Comment
         fields = ("name", "email", "body")
+        widgets = {
+            "name": forms.TextInput(attrs={"class": "form-control"}),
+            "email": forms.TextInput(attrs={"class": "form-control"}),
+            "body": forms.Textarea(attrs={"class": "form-control", "placeholder": "Enter your comment here"}),
+        }
