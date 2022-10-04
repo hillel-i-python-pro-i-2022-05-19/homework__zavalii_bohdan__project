@@ -12,14 +12,44 @@ form {
     color: gray;
 }
 
+/* Header custom code */
+
+#headerLogo {
+    padding: 0;
+    top: -2vh;
+    position: relative;
+}
+
+.dropdown_icons {
+    display: flex;
+    justify-content: center;
+}
+
+a.nav-link.dropdown-toggle {
+    color: white;
+}
+
 /* Editing header elements */
 #userGreetingDiv {
     float: right;
 }
 
 #clientGreeting {
-    color: black;
+    color: grey;
     padding: 1em;
+}
+
+#clientGreeting:hover {
+    color: white;
+}
+
+#loginOrSignup {
+    color: white;
+}
+
+#loginOrSignup:hover {
+    color: white;
+    font-weight: bold;
 }
 
 #login-or-sign-up {
@@ -136,6 +166,7 @@ form {
 }
 
 #detailBlogContainer {
+    color: black;
     display: flex;
     justify-content: center;
 }
@@ -160,8 +191,12 @@ form {
     float: right;
 }
 
+.row {
+    width: 100%;
+}
+
 .add_blog_form-parent {
-    width: 50vw;
+    width: 60%;
 }
 
 select#id_author {
@@ -183,4 +218,10 @@ select#id_author {
 
 .category-item:hover {
     font-weight: bold;
+}
+
+/* Detail blog CSS */
+div#detailBlogContainer img {
+    width: 100%;
+    height: auto;
 }
