@@ -1,8 +1,7 @@
 from django.db import models
 from django.urls import reverse
-
-# from django.contrib.auth.models import User
 from apps.clients_validation.models import AbstractClient
+from ckeditor.fields import RichTextField
 
 STATUS = ((0, "Draft"), (1, "Publish"))
 
@@ -24,8 +23,9 @@ class Post(models.Model):
     slug = models.SlugField(max_length=200, unique=True)
     author = models.ForeignKey(AbstractClient, on_delete=models.CASCADE, related_name="blog_posts")
     updated_on = models.DateTimeField(auto_now=True)
-    content = models.TextField()
+    content = RichTextField(blank=True, null=True)
     created_on = models.DateTimeField(auto_now_add=True)
+    snippet = models.CharField(max_length=220)
 
     # If default=1, then all posts will be immediately displayed on the page,
     # but if default=0, then admin should go to admin panel and approve it manually.
