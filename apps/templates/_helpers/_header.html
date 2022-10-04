@@ -1,10 +1,11 @@
-<nav class="navbar navbar-expand-lg bg-light">
+{% load static %}
+
+<nav class="navbar navbar-expand-lg bg-dark">
     <div class="container-fluid">
-        <i class="fa-solid fa-compass"></i>
-        {#        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M256 512c141.4 0 256-114.6 256-256S397.4 0 256 0S0 114.6 0 256S114.6 512 256 512zm50.7-186.9L162.4 380.6c-19.4 7.5-38.5-11.6-31-31l55.5-144.3c3.3-8.5 9.9-15.1 18.4-18.4l144.3-55.5c19.4-7.5 38.5 11.6 31 31L325.1 306.7c-3.2 8.5-9.9 15.1-18.4 18.4zM288 256c0-17.7-14.3-32-32-32s-32 14.3-32 32s14.3 32 32 32s32-14.3 32-32z"/></svg>#}
-        <a class="navbar-brand" href="/"><i
-            class="glyphicon glyphicon-home"></i> Journal
-            Navigation</a>
+        <a class="navbar-brand" id="headerLogo" href="{% url 'index' %}">
+            <img src="{% static '/img/black_logo-removebg-preview.png' %}" alt="Logo" width="100" height="90"
+                 id="headerText">
+        </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -12,46 +13,58 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="/">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/clients/about_us">
-                        About us</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/blogs/">
-                        Our Blog</a>
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0" style="color: white;">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button"
+                       data-bs-toggle="dropdown" aria-expanded="false">
+                        MORE
+                    </a>
+                    <ul class="dropdown-menu" id="moreDropdown">
+                        <li><a class="dropdown-item" href="/clients/about_us">ABOUT</a></li>
+                        <li><a class="dropdown-item" href="#">CONTACT</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <div class="dropdown_icons">
+                            <li><a class="dropdown-item" href="https://www.youtube.com/channel/UC5deCaNgfUgQJ2tgvIE_bKA"
+                                   target="_blank"><img src="{% static '/icons/youtube.svg' %}" alt="YT" width="20"
+                                                        height="auto"></a></li>
+                            <li><a class="dropdown-item" href="https://twitter.com/zavbog_LQ"
+                                   target="_blank"><img src="{% static '/icons/twitter.svg' %}" alt="TW" width="20"
+                                                        height="auto"></a></li>
+                            <li><a class="dropdown-item" href="https://t.me/liqu_id_us"
+                                   target="_blank"><img src="{% static '/icons/telegram.svg' %}" alt="TG" width="20"
+                                                        height="auto"></a></li>
+                        </div>
+                    </ul>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button"
                        data-bs-toggle="dropdown" aria-expanded="false">
-                        Client area
+                        PRODUCTS
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="/clients/"
-                               target="_blank">List of Clients</a></li>
-                        <li><a class="dropdown-item" href="#">Another
-                            action</a></li>
+                        <li><a class="dropdown-item" href="/blogs/">Daily Blog</a></li>
+                        <li><a class="dropdown-item" href="#">Weekly Updates</a></li>
                         <li>
                             <hr class="dropdown-divider">
                         </li>
-                        <li><a class="dropdown-item" href="#">Something else
-                            here</a></li>
+                        <li><a class="dropdown-item" href="#"><i>LIQUIDUS University</i></a></li>
                     </ul>
                 </li>
             </ul>
             <div class="d-flex justify-content-center align-items-center"
                  id="userGreetingDiv">
                 {% if user.is_authenticated %}
-                    <div id="clientGreeting">Hi, <i>{{ user.username }}!</i></div>
-                    <div><a href="{% url 'logout' %}" style="color: grey">Log Out</a></div>
+{#                    <div id="clientGreeting">Hi, <i>{{ user.username }}!</i></div>#}
+                    <div id="clientGreeting">ACCOUNT</div>
+                    <div>
+                        <a href="{% url 'logout' %}" id="clientGreeting">LOGOUT</a></div>
                 {% else %}
-                    <div id="login-or-sign-up">
-                        <a href="{% url 'login' %}">Log In</a>
+                    <div id="login-clientGreeting-sign-up">
+                        <a href="{% url 'login' %}" id="loginOrSignup"><i>LOG IN</i></a>
                         <span style="color: grey"> or </span>
-                        <a href="{% url 'clients:signup' %}">Sign Up</a>
+                        <a href="{% url 'clients:signup' %}" id="loginOrSignup"><i>SIGN UP</i></a>
                     </div>
                 {% endif %}
             </div>

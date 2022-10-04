@@ -7,6 +7,7 @@
         <div class="form-group">
             <form method="post" enctype="multipart/form-data">
                 {% csrf_token %}
+                {{ form.media}}
                 {{ form | crispy}}
                 <button type="submit" class="btn btn-success" style="float: right">Update</button>
             </form>

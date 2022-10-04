@@ -18,7 +18,8 @@
                     {% endif %}
                     <h2 class="card-title" style="color: darkolivegreen;">{{ post.title }}</h2>
                     <p class="card-text text-muted h6">{{ post.author }} | {{ post.created_on }} </p>
-                    <p class="card-text">{{ post.content|slice:":200"|safe }}</p>
+                    <p class="card-text" style="color: black">{{ post.snippet }}</p>
+
                     <a href="{% url 'blogs:post_detail' post.slug %}" class="btn btn-primary">Read More
                         &rarr;</a>
                     <p class="comments-count">

@@ -39,7 +39,8 @@
                             href="{% url 'blogs:category' cats=post.blog_category|slugify %}" target="_blank"
                             class="card-text text-muted h6"><i>{{ post.blog_category }}</i></a>
                             <p></p>
-                            <p class="card-text">{{ post.content|slice:":200"|safe }}...</p>
+                            <p class="card-text" style="color: black">{{ post.snippet }}</p>
+{#                            <p class="card-text">{{ post.content|slice:":200"|safe }}...</p>#}
                             <a href="{% url 'blogs:post_detail' post.slug %}" class="btn btn-primary">Read More
                                 &rarr;</a>
                             <p class="comments-count">
