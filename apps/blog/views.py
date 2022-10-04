@@ -87,7 +87,6 @@ class PostDetailView(DetailView):
         comment_form = CommentForm(data=request.POST)
         self.object = self.get_object()
         slug = self.kwargs["slug"]
-        # context = super().get_context_data(**kwargs)
         post = get_object_or_404(Post, slug=slug)
         comments = post.comments.filter(active=True)
         new_comment = None

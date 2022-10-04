@@ -8,9 +8,16 @@ User = get_user_model()
 class CustomUserCreationForm(UserCreationForm):
     error_css_class = "error-field"
     required_css_class = "required-field"
+    email = forms.EmailField(widget=forms.EmailInput(attrs={"class": "form-control"}))
     username = forms.CharField(
         widget=forms.TextInput(attrs={"class": "form-control", "placeholder": "Example: MacroTrader"})
     )
 
-    class Meta(UserCreationForm.Meta):
+    class Meta:
         model = User
+        fields = (
+            "username",
+            "email",
+            "password1",
+            "password2",
+        )
