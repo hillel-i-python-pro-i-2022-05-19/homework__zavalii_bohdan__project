@@ -26,8 +26,16 @@ class Post(models.Model):
     updated_on = models.DateTimeField(auto_now=True)
     content = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
+
+    # If default=1, then all posts will be immediately displayed on the page,
+    # but if default=0, then admin should go to admin panel and approve it manually.
     status = models.IntegerField(choices=STATUS, default=1)
     blog_category = models.CharField(max_length=200, default="uncategorized")
+
+    likes = models.ManyToManyField(AbstractClient, related_name="blog_post_likes")
+
+    def total_likes(self):
+        return self.likes.count()
 
     class Meta:
         ordering = ["-created_on"]

@@ -8,13 +8,14 @@
         {% for post in category_posts %}
             <div class="card mb-4">
                 <div class="card-body">
-                    <a href="{% url 'blogs:edit' pk=post.pk %}">
-                        <button type="button" class="btn btn-light" id="editBlogBtn">Edit blog 📝</button>
-                    </a>
-
-                    <a href="{% url 'blogs:delete' pk=post.pk %}">
-                        <button class="btn-close" aria-label="Close"></button>
-                    </a>
+                    {% if user.id == post.author.id or user.id == 1 %}
+                        <a href="{% url 'blogs:edit' pk=post.pk %}">
+                            <button type="button" class="btn btn-light" id="editBlogBtn">Edit blog 📝</button>
+                        </a>
+                        <a href="{% url 'blogs:delete' pk=post.pk %}">
+                            <button class="btn-close" aria-label="Close"></button>
+                        </a>
+                    {% endif %}
                     <h2 class="card-title" style="color: darkolivegreen;">{{ post.title }}</h2>
                     <p class="card-text text-muted h6">{{ post.author }} | {{ post.created_on }} </p>
                     <p class="card-text">{{ post.content|slice:":200"|safe }}</p>

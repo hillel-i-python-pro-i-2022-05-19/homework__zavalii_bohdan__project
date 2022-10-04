@@ -12,8 +12,11 @@ class PostCategoryAdmin(admin.ModelAdmin):
 
 @admin.register(Post)
 class PostAdmin(admin.ModelAdmin):
-    list_display = ("title", "slug", "status", "created_on")
-    list_filter = ("status",)
+    list_display = ("title", "author", "slug", "total_likes", "created_on")
+    list_filter = (
+        "status",
+        "author",
+    )
     search_fields = ["title", "content"]
     prepopulated_fields = {"slug": ("title",)}
 
