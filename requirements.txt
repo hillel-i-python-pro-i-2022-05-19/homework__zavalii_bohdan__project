@@ -8,6 +8,10 @@ django-ckeditor==6.5.1
 # Broker's API
 ibapi==9.81.1.post1
 
+# Heroku deploy libs
+django-heroku==0.3.1
+python-decouple==3.6
+
 # Datasets modyfing and visualisation
 numpy==1.22.4
 pandas==1.4.2
